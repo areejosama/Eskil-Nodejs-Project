@@ -3,12 +3,12 @@ import DBconnection from './DB/connection.js';
 import * as dotenv from 'dotenv';
 dotenv.config()
 import * as indexrouter from './index.routes.js';
-import bodyParser from "body-parser";
+//import bodyParser from "body-parser";
 DBconnection();
 const port = 3000
 const app = express();
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.json());
+//app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/api/v1/auth', indexrouter.authrouter)
 app.use('/api/v1/user', indexrouter.userrouter)
